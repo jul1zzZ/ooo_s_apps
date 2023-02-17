@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TradeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ed_Izm">
+    <Key>
+      <PropertyRef Name="Ed_Izm_ID" />
+    </Key>
+    <Property Name="Ed_Izm_ID" Type="int" Nullable="false" />
+    <Property Name="E_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Postavchik">
+    <Key>
+      <PropertyRef Name="Postavchik_ID" />
+    </Key>
+    <Property Name="P_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Postavchik_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proizvod">
+    <Key>
+      <PropertyRef Name="Proizvod_ID" />
+    </Key>
+    <Property Name="P_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Proizvod_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pynkt_vid">
+    <Key>
+      <PropertyRef Name="Pynkt_vid_ID" />
+    </Key>
+    <Property Name="Pynkt_vid_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="P_Index" Type="int" Nullable="false" />
+    <Property Name="P_Gorod" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="P_Ylica" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="P_Dom" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="R_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Role_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Status_ID" />
+    </Key>
+    <Property Name="S_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="T_Artikyl_ID" />
+    </Key>
+    <Property Name="T_Artikyl_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="T_Spisok_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="T_Ed_Izm_ID" Type="int" Nullable="false" />
+    <Property Name="T_Stoimost" Type="float" Nullable="false" />
+    <Property Name="T_Razmer_Max_Skidki" Type="float" Nullable="false" />
+    <Property Name="T_Proizvod_ID" Type="int" Nullable="false" />
+    <Property Name="T_Postavshik_ID" Type="int" Nullable="false" />
+    <Property Name="T_Type_Tovar_ID" Type="int" Nullable="false" />
+    <Property Name="T_Destv_Skidka" Type="float" />
+    <Property Name="T_Kolich" Type="int" Nullable="false" />
+    <Property Name="T_Opis" Type="nvarchar(max)" />
+    <Property Name="T_Photo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Type_Tovara">
+    <Key>
+      <PropertyRef Name="Type_Tovara_ID" />
+    </Key>
+    <Property Name="T_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type_Tovara_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_Familya" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="U_Imya" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="U_Otchestvo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="U_Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="U_Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="U_Role_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zakaz">
+    <Key>
+      <PropertyRef Name="Zakaz_ID" />
+    </Key>
+    <Property Name="Zakaz_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Z_Sostav" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Z_Kolich" Type="int" Nullable="false" />
+    <Property Name="Z_Data_Zakaza" Type="date" Nullable="false" />
+    <Property Name="Z_Data_Dostav" Type="date" Nullable="false" />
+    <Property Name="Z_Pynkt_vid_ID" Type="int" Nullable="false" />
+    <Property Name="Z_Famil" Type="nvarchar" MaxLength="50" />
+    <Property Name="Z_Imya" Type="nvarchar" MaxLength="50" />
+    <Property Name="Z_Otchestvo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Z_Kod_Polych" Type="int" Nullable="false" />
+    <Property Name="Z_Status_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Tovar_Ed_Izm">
+    <End Role="Ed_Izm" Type="Self.Ed_Izm" Multiplicity="1" />
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ed_Izm">
+        <PropertyRef Name="Ed_Izm_ID" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="T_Ed_Izm_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tovar_Postavchik">
+    <End Role="Postavchik" Type="Self.Postavchik" Multiplicity="1" />
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postavchik">
+        <PropertyRef Name="Postavchik_ID" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="T_Postavshik_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tovar_Proizvod">
+    <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvod">
+        <PropertyRef Name="Proizvod_ID" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="T_Proizvod_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tovar_Type_Tovara">
+    <End Role="Type_Tovara" Type="Self.Type_Tovara" Multiplicity="1" />
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_Tovara">
+        <PropertyRef Name="Type_Tovara_ID" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="T_Type_Tovar_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="U_Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakaz_Pynkt_vid">
+    <End Role="Pynkt_vid" Type="Self.Pynkt_vid" Multiplicity="1" />
+    <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pynkt_vid">
+        <PropertyRef Name="Pynkt_vid_ID" />
+      </Principal>
+      <Dependent Role="Zakaz">
+        <PropertyRef Name="Z_Pynkt_vid_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakaz_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Status_ID" />
+      </Principal>
+      <Dependent Role="Zakaz">
+        <PropertyRef Name="Z_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakaz_Tovar">
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="1" />
+    <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovar">
+        <PropertyRef Name="T_Artikyl_ID" />
+      </Principal>
+      <Dependent Role="Zakaz">
+        <PropertyRef Name="Z_Sostav" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище TradeModelContainer">
+    <EntitySet Name="Ed_Izm" EntityType="Self.Ed_Izm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Postavchik" EntityType="Self.Postavchik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proizvod" EntityType="Self.Proizvod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pynkt_vid" EntityType="Self.Pynkt_vid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tovar" EntityType="Self.Tovar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type_Tovara" EntityType="Self.Type_Tovara" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zakaz" EntityType="Self.Zakaz" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tovar_Ed_Izm" Association="Self.FK_Tovar_Ed_Izm">
+      <End Role="Ed_Izm" EntitySet="Ed_Izm" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tovar_Postavchik" Association="Self.FK_Tovar_Postavchik">
+      <End Role="Postavchik" EntitySet="Postavchik" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tovar_Proizvod" Association="Self.FK_Tovar_Proizvod">
+      <End Role="Proizvod" EntitySet="Proizvod" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tovar_Type_Tovara" Association="Self.FK_Tovar_Type_Tovara">
+      <End Role="Type_Tovara" EntitySet="Type_Tovara" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakaz_Pynkt_vid" Association="Self.FK_Zakaz_Pynkt_vid">
+      <End Role="Pynkt_vid" EntitySet="Pynkt_vid" />
+      <End Role="Zakaz" EntitySet="Zakaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakaz_Status" Association="Self.FK_Zakaz_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Zakaz" EntitySet="Zakaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakaz_Tovar" Association="Self.FK_Zakaz_Tovar">
+      <End Role="Tovar" EntitySet="Tovar" />
+      <End Role="Zakaz" EntitySet="Zakaz" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

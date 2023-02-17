@@ -1,0 +1,61 @@
+﻿<Page x:Class="OOO_S_App.Pages.AddAndEditTovarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OOO_S_App.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddAndEditTovarPage" Style="{DynamicResource base_page}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="ArtikylID" Text="T_Artikyl_ID" Height="40"/>
+        <TextBlock Text="Товар" Height="40" FontSize="20" Margin="5" Grid.Row="1"/>
+        <TextBlock Text="Единица измерения" Height="40" FontSize="20" Margin="5" Grid.Row="2"/>
+        <TextBlock Text="Стоимость" Height="40" FontSize="20" Margin="5" Grid.Row="3"/>
+        <TextBlock Text="Размер" Height="40" FontSize="20" Margin="5" Grid.Row="4"/>
+        <TextBlock Text="Производитель" Height="40" FontSize="20" Margin="5" Grid.Row="5"/>
+        <TextBlock Text="Поставщик" Height="40" FontSize="20" Margin="5" Grid.Row="6"/>
+        <TextBlock Text="Тип товара" Height="40" FontSize="20" Margin="5" Grid.Row="7"/>
+        <TextBlock Text="Скидка" Height="40" FontSize="20" Margin="5" Grid.Row="8"/>
+        <TextBlock Text="Кол-во" Height="40" FontSize="20" Margin="5" Grid.Row="9"/>
+        <TextBlock Text="Описание товара" Height="40" FontSize="20" Margin="5" Grid.Row="10"/>
+        <TextBlock Text="Фото" Height="40" FontSize="20" Margin="5" Grid.Row="11"/>
+        <Button x:Name="LoadPhotoBtn" Content="Загрузить фото" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource ButtonRadius}" Grid.Row="11" Grid.Column="1" Width="120" Height="30" Click="LoadPhotoBtn_Click"/>
+        <TextBox x:Name="T_Artikyl_ID" Width="350"  Height="25" Grid.Column="1" Text="{Binding T_Artikyl_ID}"/>
+        <TextBox x:Name="SpisokCb" Grid.Row="1" Grid.Column="1" Text="{Binding T_Spisok_ID}"  Width="350" Height="20"/>
+        <ComboBox x:Name="EdCb" Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Ed_Izm}" DisplayMemberPath="E_Name" Width="350" Height="20"/>
+        <TextBox x:Name="T_Stoimost" Width="350"  Height="25" Grid.Column="1" Grid.Row="3" Text="{Binding T_Stoimost}"/>
+        <TextBox x:Name="T_Razmer_Max_Skidki" Width="350"  Height="25" Grid.Column="1" Grid.Row="4" Text="{Binding T_Razmer_Max_Skidki}"/>
+        <ComboBox x:Name="ProizCb" Grid.Row="5" Grid.Column="1" SelectedItem="{Binding Proizvod}" DisplayMemberPath="P_Name" Width="350" Height="20"/>
+        <ComboBox x:Name="PostvCb" Grid.Row="6" Grid.Column="1" SelectedItem="{Binding Postavchik}" DisplayMemberPath="P_Name" Width="350" Height="20"/>
+        <ComboBox x:Name="TypeCb" Grid.Row="7" Grid.Column="1" SelectedItem="{Binding Type_Tovara}" DisplayMemberPath="T_Name" Width="350" Height="20"/>
+        <TextBox x:Name="T_Destv_Skidka" Width="350"  Height="25" Grid.Column="1" Grid.Row="8" Text="{Binding T_Destv_Skidka}"/>
+        <TextBox x:Name="T_Kolich" Width="350"  Height="25" Grid.Column="1" Grid.Row="9" Text="{Binding T_Kolich}"/>
+        <TextBox x:Name="T_Opis" Width="350"  Height="25" Grid.Column="1" Grid.Row="10" Text="{Binding T_Opis}"/>
+
+        <Button x:Name="back" Content="Назад" Grid.Row="12" Style="{StaticResource ButtonRadius}" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left" Click="back_Click"/>
+        <Button x:Name="save" Content="Сохранить" Grid.Row="12" Style="{StaticResource ButtonRadius}" Width="150" Height="50" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Click="save_Click"/>
+
+    </Grid>
+</Page>

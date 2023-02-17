@@ -1,0 +1,60 @@
+﻿<Page x:Class="OOO_S_App.Pages.FarmZakazPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OOO_S_App.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="950" d:DesignWidth="1200"
+      Title="FarmZakazPage" Style="{StaticResource base_page}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="back" Content="Назад" Grid.Row="11" Style="{StaticResource ButtonRadius}" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left" Click="back_Click"/>
+        <Button x:Name="new" Content="Сформировать" Grid.Row="11" Grid.ColumnSpan="2" Style="{StaticResource ButtonRadius}" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Click="new_Click"/>
+        <Button x:Name="TP" Content="Поддержка" Grid.Row="11" Grid.Column="1" Style="{StaticResource ButtonRadius}" Width="150" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Click="TP_Click"/>
+
+        <TextBlock Text="Товар" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Количество *выбранного товара*" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Дата заказа------>" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15"/>
+        <TextBlock Text="Дата достваки------>" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15"/>
+        <TextBlock Text="Пункт выдачи" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Фамилия" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Имя" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Отчество" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="--------------------------------------" Grid.ColumnSpan="2" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+        <TextBlock Text="*Новый заказ*" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="15"/>
+
+        <Calendar x:Name="calend" Grid.Row="3" Grid.Column="1" FirstDayOfWeek="Monday" Visibility="Visible" HorizontalAlignment="Center" SelectedDate="{Binding Z_Data_Zakaza}" Width="auto" Height="auto"/>
+        <Calendar x:Name="calend1" Grid.Row="4" Grid.Column="1" FirstDayOfWeek="Monday" SelectedDate="{Binding Z_Data_Dostav}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="auto"/>
+        <ComboBox x:Name="CBTovar" Grid.Row="1" Grid.Column="1" SelectedItem="{Binding Tovar}" DisplayMemberPath="T_Artikyl_ID" Width="150" Height="20"/>
+        <TextBox x:Name="TBKol" Grid.Column="1" Grid.Row="2" Text="{Binding Z_Kolich}" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CBPV" Grid.Row="5" Grid.Column="1" SelectedItem="{Binding Pynkt_vid}" DisplayMemberPath="P_Ylica" Width="150" Height="20" Margin="225,1,225,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBFam" Grid.Column="1" Grid.Row="6" Text="{Binding Z_Famil}" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="TBIm" Grid.Column="1" Grid.Row="7" Text="{Binding Z_Imya}" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="TBOtch" Grid.Column="1" Grid.Row="8" Text="{Binding Z_Otchestvo}" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Код получения" Grid.Row="9" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="Статус" Grid.Row="10" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox x:Name="TBKP" Grid.Column="1" Visibility="Visible" Text="{Binding Z_Kod_Polych}" Grid.Row="9" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <ComboBox x:Name="TBStatus" Visibility="Visible" Grid.Column="1" Grid.Row="10" SelectedItem="{Binding Status}" DisplayMemberPath="S_Name" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+    </Grid>
+</Page>
